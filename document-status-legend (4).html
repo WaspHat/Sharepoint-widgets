@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document Status Legend</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    padding: 24px 20px 28px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 6px;
+  }
+
+  .description {
+    font-size: 13.5px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .card {
+    display: flex;
+    align-items: stretch;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    border-left-width: 4px;
+    overflow: hidden;
+  }
+
+  .card.approved   { border-left-color: #1D9E75; }
+  .card.draft      { border-left-color: #378ADD; }
+  .card.superseded { border-left-color: #BA7517; }
+  .card.retired    { border-left-color: #888780; }
+
+  .card-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    width: 100%;
+  }
+
+  .status-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 110px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .approved   .dot { background: #1D9E75; }
+  .draft      .dot { background: #378ADD; }
+  .superseded .dot { background: #BA7517; }
+  .retired    .dot { background: #888780; }
+
+  .label-text {
+    font-size: 13.5px;
+    font-weight: 600;
+  }
+
+  .approved   .label-text { color: #085041; }
+  .draft      .label-text { color: #0C447C; }
+  .superseded .label-text { color: #633806; }
+  .retired    .label-text { color: #444441; }
+
+  .divider {
+    width: 1px;
+    background: #e8e8e8;
+    align-self: stretch;
+    flex-shrink: 0;
+  }
+
+  .card-body {
+    padding-left: 2px;
+  }
+
+  .card-title {
+    font-size: 13.5px;
+    color: #1a1a1a;
+    line-height: 1.4;
+  }
+
+  .card-sub {
+    font-size: 12.5px;
+    color: #777;
+    margin-top: 1px;
+  }
+</style>
+</head>
+<body>
+
+<p class="eyebrow">Document status</p>
+<p class="description">Each document carries a status visible in its properties. The status tells you whether to treat the document as authoritative.</p>
+
+<div class="cards">
+
+  <div class="card approved">
+    <div class="card-inner">
+      <div class="status-label">
+        <span class="dot"></span>
+        <span class="label-text">Approved</span>
+      </div>
+      <div class="divider"></div>
+      <div class="card-body">
+        <p class="card-title">Current authoritative version.</p>
+        <p class="card-sub">Follow this document.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card draft">
+    <div class="card-inner">
+      <div class="status-label">
+        <span class="dot"></span>
+        <span class="label-text">Draft</span>
+      </div>
+      <div class="divider"></div>
+      <div class="card-body">
+        <p class="card-title">Currently under review. May change.</p>
+        <p class="card-sub">Do not treat as authoritative yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card superseded">
+    <div class="card-inner">
+      <div class="status-label">
+        <span class="dot"></span>
+        <span class="label-text">Superseded</span>
+      </div>
+      <div class="divider"></div>
+      <div class="card-body">
+        <p class="card-title">Replaced by a newer version.</p>
+        <p class="card-sub">Preserved for historical reference only.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card retired">
+    <div class="card-inner">
+      <div class="status-label">
+        <span class="dot"></span>
+        <span class="label-text">Retired</span>
+      </div>
+      <div class="divider"></div>
+      <div class="card-body">
+        <p class="card-title">No longer applicable.</p>
+        <p class="card-sub">Preserved for audit and history.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
